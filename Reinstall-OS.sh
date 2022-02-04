@@ -157,7 +157,7 @@ function Start() {
 
   sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /tmp/InstallNET.sh
 
-  echo -e "\Please Select An OS:"
+  echo -e "\nPlease Select An OS:"
   echo "  1) CentOS 7 X64"
   echo "  2) CentOS 8 X64"
   echo "  4) Debian 9 X64"
