@@ -129,7 +129,7 @@ function BootConf() {
   staticIp='1'
   if [ "$isAuto" == '1' ]; then
     echo -e "\n"
-    read -r -p "Using static ip? [Y/N]: " input
+    read -r -p "Using static ip? [Y/n]: " input
     case $input in
       [yY][eE][sS]|[yY]) staticIp='0' ;;
       *) staticIp='1' ;;
@@ -204,11 +204,9 @@ function Start() {
   echo -ne "\nYour Option: "
   read N
   case $N in
-    1) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
-    InstallNET.sh -c 7 -v 64 -a $NETSTR $CMIRROR ;;
+    1) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -c 7 -v 64 -a $NETSTR $CMIRROR ;;
 
-    2) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
-    InstallNET.sh -c 8 -v 64 -a $NETSTR $CMIRROR ;;
+    2) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -c 8 -v 64 -a $NETSTR $CMIRROR ;;
 
     3) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
 
@@ -226,7 +224,7 @@ function Start() {
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
       echo -e "\n"
-      read -r -p "Are You Sure Start Reinstall? [Y/N]: " input
+      read -r -p "Are You Sure Start Reinstall? [y/N]: " input
       case $input in
         [yY][eE][sS]|[yY]) bash /tmp/InstallNET.sh $NETSTR -dd $imgURL $DMIRROR ;;
         *) clear; echo "Canceled by user!"; exit 1;;
