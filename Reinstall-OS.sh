@@ -177,15 +177,13 @@ function Start() {
   if [ -f "/tmp/InstallNET.sh" ]; then
     rm -f /tmp/InstallNET.sh
   fi
-  wget -qO /tmp/InstallNET.sh 'https://cdn.jsdelivr.net/gh/hiCasper/Shell@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
-  #wget -qO /tmp/InstallNET.sh 'https://cdn.jsdelivr.net/gh/MoeClub/Note@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
+  wget -qO /tmp/InstallNET.sh 'https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
 
   CMIRROR=''
   CVMIRROR=''
   DMIRROR=''
   UMIRROR=''
   if [[ "$isCN" == '1' ]];then
-    #CMIRROR="--mirror http://mirrors.aliyun.com/centos/"
     CMIRROR="--mirror https://www.ftp.saix.net/linux/distributions/centos/"
     CVMIRROR="--mirror http://mirrors.tuna.tsinghua.edu.cn/centos-vault/"
     DMIRROR="--mirror http://ftp.us.debian.org/debian/"
