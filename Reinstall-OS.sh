@@ -156,7 +156,9 @@ function Start() {
   CopyRight
 
   isCN='0'
-  geoip=$(wget -qO- https://api.ip.sb/geoip -T 10 | grep "\"country_code\":\"CN\"")
+  geoip=$(wget --no-check-certificate -qO- https://api.ip.sb/geoip -T 10 | grep "\"country_code\":\"CN\"")
+  if [[ "$geoip" != "" ]];then
+    isCN='1'
   fi
 
   if [ "$isAuto" == '0' ]; then
@@ -165,17 +167,25 @@ function Start() {
     echo "IP: $MAINIP"
     echo "Gateway: $GATEWAYIP"
     echo "Netmask: $NETMASK"
+  fi
+
+  [[ "$isCN" == '1' ]] && echo "Using domestic mode."
 
   if [ -f "/tmp/InstallNET.sh" ]; then
     rm -f /tmp/InstallNET.sh
-
   fi
   wget -qO /tmp/InstallNET.sh 'https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
-  
+
   CMIRROR=''
   CVMIRROR=''
   DMIRROR=''
   UMIRROR=''
+  if [[ "$isCN" == '1' ]];then
+    CMIRROR="--mirror https://mirrors.bfsu.edu.cn/centos/"
+    CVMIRROR="--mirror https://mirrors.tuna.tsinghua.edu.cn/centos-vault/"
+    DMIRROR="--mirror https://mirrors.ustc.edu.cn/debian/"
+    UMIRROR="--mirror https://mirror.nju.edu.cn/ubuntu/"
+    UMIRROR="--mirror https://mirror.nju.edu.cn/ubuntu/"
 
   fi
   sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /tmp/InstallNET.sh
