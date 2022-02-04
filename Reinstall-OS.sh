@@ -188,7 +188,7 @@ function Start() {
     UMIRROR="--mirror https://mirror.nju.edu.cn/ubuntu/"
 
   fi
-  sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /tmp/InstallNET.sh
+  sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$ePVn8ymj$2LVVfc0jeCd2QsFmlybGv1/' /tmp/InstallNET.sh
 
   echo -e "\nPlease Select An OS:"
   echo "  1) CentOS 7 X64"
