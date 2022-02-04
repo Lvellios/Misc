@@ -207,7 +207,7 @@ function Start() {
     1) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
     InstallNET.sh -c 7 -v 64 -a $NETSTR $CMIRROR ;;
 
-    2) echo -e "\nPassword: Pwd@CentOS\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
+    2) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
     InstallNET.sh -c 8 -v 64 -a $NETSTR $CMIRROR ;;
 
     3) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
