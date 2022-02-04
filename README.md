@@ -1,6 +1,4 @@
-# Install official Linux with SSH
-
-## Reinstall OS With SSH for VPS
+# Install Official Linux With SSH
 
 ## Supported Systems
 - Debian 9/10/11，
