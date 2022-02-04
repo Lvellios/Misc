@@ -153,8 +153,31 @@ EOF
 }
 
 function Start() {
-  wget -qO /tmp/InstallNET.sh 'https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
+  CopyRight
 
+  isCN='0'
+  geoip=$(wget -qO- https://api.ip.sb/geoip -T 10 | grep "\"country_code\":\"CN\"")
+  fi
+
+  if [ "$isAuto" == '0' ]; then
+    echo "Using DHCP mode."
+  else
+    echo "IP: $MAINIP"
+    echo "Gateway: $GATEWAYIP"
+    echo "Netmask: $NETMASK"
+
+  if [ -f "/tmp/InstallNET.sh" ]; then
+    rm -f /tmp/InstallNET.sh
+
+  fi
+  wget -qO /tmp/InstallNET.sh 'https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
+  
+  CMIRROR=''
+  CVMIRROR=''
+  DMIRROR=''
+  UMIRROR=''
+
+  fi
   sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /tmp/InstallNET.sh
 
   echo -e "\nPlease Select An OS:"
