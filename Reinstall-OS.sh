@@ -102,7 +102,7 @@ function NetMode() {
       echo "Gateway: $GATEWAYIP"
       echo "Netmask: $NETMASK"
       echo -e "\n"
-      read -r -p "Confirm? [Y/N]:" input
+      read -r -p "Confirm? [Y/n]:" input
       case $input in
         [yY][eE][sS]|[yY]) ;;
         [nN][oO]|[nN])
