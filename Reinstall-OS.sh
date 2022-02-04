@@ -82,7 +82,7 @@ function NetMode() {
   CopyRight
 
   if [ "$isAuto" == '0' ]; then
-    read -r -p "Using DHCP to configure network automatically? [Y/n]:" input
+    read -r -p "Using DHCP to configure network automatically? [Y/N]:" input
     case $input in
       [yY][eE][sS]|[yY]) NETSTR='' ;;
       [nN][oO]|[nN]) isAuto='1' ;;
@@ -102,7 +102,7 @@ function NetMode() {
       echo "Gateway: $GATEWAYIP"
       echo "Netmask: $NETMASK"
       echo -e "\n"
-      read -r -p "Confirm? [Y/n]:" input
+      read -r -p "Confirm? [Y/N]:" input
       case $input in
         [yY][eE][sS]|[yY]) ;;
         [nN][oO]|[nN])
@@ -129,7 +129,7 @@ function BootConf() {
   staticIp='1'
   if [ "$isAuto" == '1' ]; then
     echo -e "\n"
-    read -r -p "Using static ip? [Y/n]: " input
+    read -r -p "Using static ip? [Y/N]: " input
     case $input in
       [yY][eE][sS]|[yY]) staticIp='0' ;;
       *) staticIp='1' ;;
@@ -168,32 +168,32 @@ function Start() {
   echo "  9) Ubuntu 20.04 X64"
   echo "  10) Custom image"
   echo "  0) Exit"
-  echo -ne "\nYour option: "
+  echo -ne "\nYour Option: "
   read N
   case $N in
-    1) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
+    1) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
     InstallNET.sh -c 7 -v 64 -a $NETSTR $CMIRROR ;;
 
-    2) echo -e "\Password: Pwd@CentOS\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
+    2) echo -e "\nPassword: Pwd@CentOS\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
     InstallNET.sh -c 8 -v 64 -a $NETSTR $CMIRROR ;;
 
-    3) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
+    3) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
 
-    4) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 10 -v 64 -a $NETSTR $DMIRROR ;;
+    4) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 10 -v 64 -a $NETSTR $DMIRROR ;;
 
-    5) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 11 -v 64 -a $NETSTR $DMIRROR ;;
+    5) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 11 -v 64 -a $NETSTR $DMIRROR ;;
 
-    6) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 16.04 -v 64 -a $NETSTR $UMIRROR ;;
+    6) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 16.04 -v 64 -a $NETSTR $UMIRROR ;;
 
-    7) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 18.04 -v 64 -a $NETSTR $UMIRROR ;;
+    7) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 18.04 -v 64 -a $NETSTR $UMIRROR ;;
 
-    8) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 20.04 -v 64 -a $NETSTR $UMIRROR ;;
+    8) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 20.04 -v 64 -a $NETSTR $UMIRROR ;;
 
     9)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
       echo -e "\n"
-      read -r -p "Are you sure start reinstall? [y/N]: " input
+      read -r -p "Are You Sure Start Reinstall? [Y/N]: " input
       case $input in
         [yY][eE][sS]|[yY]) bash /tmp/InstallNET.sh $NETSTR -dd $imgURL $DMIRROR ;;
         *) clear; echo "Canceled by user!"; exit 1;;
