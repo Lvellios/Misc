@@ -12,9 +12,6 @@ function CopyRight() {
   echo "#                                                               #"
   echo "#  Auto Reinstall OS For VPS With SSH Script                    #"
   echo "#                                                               #"
-  echo "#  Feedback: https://github.com/Lvellios/Reinstall-OS/issues    #"
-  echo "#                                                               #"
-  echo "#                                                               #"
   echo "#################################################################"
   echo -e "\n"
 }
