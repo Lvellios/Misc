@@ -6,7 +6,7 @@
 - CentOS 7, 8
 - Custom ISO
 
-## install script
+## install Script
 
 ```
 wget -O Reinstall-OS.sh https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/Reinstall-OS.sh && bash Reinstall-OS.sh
