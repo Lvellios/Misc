@@ -156,68 +156,45 @@ EOF
 }
 
 function Start() {
-  CopyRight
-
-  isCN='0'
-  geoip=$(wget --no-check-certificate -qO- https://api.ip.sb/geoip -T 10 | grep "\"country_code\":\"CN\"")
-  if [[ "$geoip" != "" ]];then
-    isCN='1'
-  fi
-
-  if [ "$isAuto" == '0' ]; then
-    echo "Using DHCP mode."
-  else
-    echo "IP: $MAINIP"
-    echo "Gateway: $GATEWAYIP"
-    echo "Netmask: $NETMASK"
-  fi
-
-  [[ "$isCN" == '1' ]] && echo "Using domestic mode."
-
-  if [ -f "/tmp/InstallNET.sh" ]; then
-    rm -f /tmp/InstallNET.sh
-  fi
   wget -qO /tmp/InstallNET.sh 'https://raw.githubusercontent.com/Lvellios/Reinstall-OS/main/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
-
-  CMIRROR=''
-  CVMIRROR=''
-  DMIRROR=''
-  UMIRROR=''
-  if [[ "$isCN" == '1' ]];then
-    CMIRROR="--mirror https://www.ftp.saix.net/linux/distributions/centos/"
-    CVMIRROR="--mirror http://mirrors.tuna.tsinghua.edu.cn/centos-vault/"
-    DMIRROR="--mirror http://ftp.us.debian.org/debian/"
-    UMIRROR="--mirror https://atl.mirrors.clouvider.net/ubuntu/"
 
   fi
 
   sed -i 's/$1$4BJZaD0A$y1QykUnJ6mXprENfwpseH0/$1$7R4IuxQb$J8gcq7u9K0fNSsDNFEfr90/' /tmp/InstallNET.sh
 
-  echo -e "\nPlease select an OS:"
-  echo "  1) CentOS 7.8 (DD Image)"
-  echo "  2) CentOS 7.6 (DD Image, ServerSpeeder Avaliable)"
-  echo "  3) CentOS 6"
-  echo "  4) Debian 9"
-  echo "  5) Debian 10"
-  echo "  6) Debian 11"
-  echo "  7) Ubuntu 16.04"
-  echo "  8) Ubuntu 18.04"
-  echo "  9) Ubuntu 20.04"
+  echo -e "\Please Select An OS:"
+  echo "  1) CentOS 7 X64"
+  echo "  2) CentOS 8 X64"
+  echo "  4) Debian 9 X64"
+  echo "  5) Debian 10 X64"
+  echo "  6) Debian 11 X64"
+  echo "  7) Ubuntu 16.04 X64"
+  echo "  8) Ubuntu 18.04 X64"
+  echo "  9) Ubuntu 20.04 X64"
   echo "  10) Custom image"
   echo "  0) Exit"
   echo -ne "\nYour option: "
   read N
   case $N in
-    1) BootConf; echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh $NETSTR -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
-    2) BootConf; echo -e "\nPassword: Pwd@CentOS\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh $NETSTR -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
-    3) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -c 6.10 -v 64 -a $NETSTR $CMIRROR ;;
-    4) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
-    5) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 10 -v 64 -a $NETSTR $DMIRROR ;;
-    6) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 11 -v 64 -a $NETSTR $DMIRROR ;;
-    7) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 16.04 -v 64 -a $NETSTR $UMIRROR ;;
-    8) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 18.04 -v 64 -a $NETSTR $UMIRROR ;;
-    9) echo -e "\nPassword: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 20.04 -v 64 -a $NETSTR $UMIRROR ;;
-    10)
+    1) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
+    InstallNET.sh -c 7 -v 64 -a $NETSTR $CMIRROR ;;
+
+    2) echo -e "\Password: Pwd@CentOS\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/
+    InstallNET.sh -c 8 -v 64 -a $NETSTR $CMIRROR ;;
+
+    3) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETSTR $DMIRROR ;;
+
+    4) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 10 -v 64 -a $NETSTR $DMIRROR ;;
+
+    5) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -d 11 -v 64 -a $NETSTR $DMIRROR ;;
+
+    6) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 16.04 -v 64 -a $NETSTR $UMIRROR ;;
+
+    7) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 18.04 -v 64 -a $NETSTR $UMIRROR ;;
+
+    8) echo -e "\Password: W0JNYLTMIRE7\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/InstallNET.sh -u 20.04 -v 64 -a $NETSTR $UMIRROR ;;
+
+    9)
       echo -e "\n"
       read -r -p "Custom image URL: " imgURL
       echo -e "\n"
